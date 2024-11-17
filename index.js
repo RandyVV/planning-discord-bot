@@ -68,11 +68,11 @@ client.on(Events.InteractionCreate, async interaction => {
         const row = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
-                    .setCustomId(`start_today_${selectedOption}`)
+                    .setCustomId(`start_today-${selectedOption}`)
                     .setLabel('OUI')
                     .setStyle(ButtonStyle.Success),
                 new ButtonBuilder()
-                    .setCustomId(`start_later_${selectedOption}`)
+                    .setCustomId(`start_later-${selectedOption}`)
                     .setLabel('NON')
                     .setStyle(ButtonStyle.Danger)
             );
@@ -88,10 +88,10 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 
     // Gestion des choix "OUI" ou "NON" pour le début de l'absence
-    else if (selectedOption.startsWith('start_today_') || selectedOption.startsWith('start_later_')) {
-        const absencePeriod = selectedOption.split('_')[2]; // Récupère la période : '1_week', '1_5_weeks', '2_weeks'
+    else if (selectedOption.startsWith('start_today-') || selectedOption.startsWith('start_later-')) {
+        const absencePeriod = selectedOption.split('-')[1]; // Récupère la période : '1_week', '1_5_weeks', '2_weeks'
 
-        if (selectedOption.startsWith('start_today_')) {
+        if (selectedOption.startsWith('start_today-')) {
             // Calcul de la date de fin
             const endDate = new Date();
             switch (absencePeriod) {
