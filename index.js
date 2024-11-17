@@ -83,7 +83,7 @@ client.on(Events.InteractionCreate, async interaction => {
     // Comportement du bouton "+ de 2 semaines"
     else if (selectedOption === 'more_than_2_weeks') {
         const staffChannel = await client.channels.fetch(STAFF_CHANNEL_ID);
-        await staffChannel.send(`<@${user.id}]> a signalé une absence de plus de 2 semaines. Merci de le contacter pour plus de détails.`);
+        await staffChannel.send(`<@${user.id}> a signalé une absence de plus de 2 semaines. Merci de le contacter pour plus de détails.`);
         await interaction.reply({ content: 'Votre absence prolongée a bien été signalée au staff.', ephemeral: true });
     }
 
